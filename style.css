@@ -94,7 +94,7 @@ header {
 }
 
 .detalle {
-  text-align: center;
+  text-align: left;
 }
 
 .detalle h2 {
@@ -127,4 +127,49 @@ header {
   width: 60;
   height: 60px;
   margin-right: 10px;
+}
+/* --- Adaptación para celulares --- */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  header {
+    padding: 15px;
+    font-size: 1.2em;
+  }
+
+  .iconos-container {
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 40px;
+  }
+
+  .icono img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .icono h2 {
+    font-size: 1.1em;
+  }
+
+  .producto {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .producto img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .detalle {
+    text-align: center;
+  }
+
+  footer {
+    font-size: 0.9em;
+    padding: 15px;
+  }
 }
