@@ -111,3 +111,20 @@ header {
 .producto:hover {
   transform: scale(1.02);
 }
+
+.contacto {
+  text-align: left;
+  padding: 40px;
+  background-color: #fffdf7;
+}
+
+.contacto h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contacto img {
+  width: 60;
+  height: 60px;
+  margin-right: 10px;
+}
