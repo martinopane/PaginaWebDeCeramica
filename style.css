@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family:  sans-serif, sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #dfe6d2;
@@ -15,14 +15,35 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 header {
-  background-color: #b36b00; /* tono tierra o arcilla */
-  color: #fffaf0;
+  background-color: #82957b; /* tono tierra o arcilla */
+  color: #fefae0;
   padding: 25px;
   text-align: center;
   border-radius: 12px;
   font-family: 'Playfair Display', serif;
   letter-spacing: 1px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .logo {
+  position: absolute;
+  left: 400px;          /* distancia desde el borde izquierdo */
+  top: 10%;            /* lo mueve al 50% de la altura del header */
+  transform: translateY(-50%); /* lo centra verticalmente */
+  width: 90px;         /* 🔹 más grande */
+  height: 90px;        /* igual al ancho para mantener el círculo */
+  border-radius: 50%;  
+  object-fit: cover;   
+  overflow: hidden;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #efeeee;
+  margin: 0;
+  text-align: center;
+  width: 100%; /* asegura que el texto se mantenga centrado */
 }
 
 /* Contenedor de íconos */
@@ -37,6 +58,7 @@ header {
 
 /* Cada ícono */
 .icono {
+  font-family: Courier New;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,41 +94,73 @@ header {
   gap: 40px;
   overflow-y: auto; /* permite scrollear si hay muchos */
 }
-
 .producto {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
   background: #fffaf0;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   width: 90%;
-  max-width: 900px;
+  max-width: 1000px;
   padding: 20px;
-  gap: 25px;
+  gap: 45px;
   transition: transform 0.3s ease;
+  
 }
 
 .producto img {
   width: 250px;
   height: 250px;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 30px;
 }
 
-.detalle {
-  text-align: left;
-}
 
 .detalle h2 {
-  margin-bottom: 10px;
-  color: #4a3c2a;
-  font-size: 1.5em;
+  flex: 1;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: #4a4a32;
 }
 
 .detalle p {
-  color: #5b4a39;
-  line-height: 1.6;
+  flex: 1;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: #4a4a32;
 }
+
+.medidas {
+  background-color: #f4efe6;
+  border-radius: 10px;
+  padding: 15px 20px;
+  min-width: 180px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.medidas h3 {
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;
+  color: #4a3c2a;
+}
+
+.medidas ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.medidas li {
+  color: #5b4a39;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+
 
 .producto:hover {
   transform: scale(1.02);
@@ -124,9 +178,13 @@ header {
 }
 
 .contacto img {
-  width: 60;
-  height: 60px;
+ 
   margin-right: 10px;
+  width: 80px;         /* 🔹 más grande */
+  height: 80px;      /* debe ser igual al ancho para que el círculo quede perfecto */
+  border-radius: 50%; /* 🔹 esto lo hace circular */
+  object-fit: cover;  /* 🔹 recorta la imagen sin deformarla */
+  overflow: hidden;   /* asegura que no se vea fuera del círculo */
 }
 /* --- Adaptación para celulares --- */
 @media (max-width: 768px) {
@@ -158,6 +216,11 @@ header {
     flex-direction: column;
     text-align: center;
   }
+    .medidas {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
 
   .producto img {
     width: 200px;
@@ -172,4 +235,106 @@ header {
     font-size: 0.9em;
     padding: 15px;
   }
+}
+
+
+/* --- Página de Preguntas Frecuentes (FAQ) --- */
+
+.faq-container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fffaf0; /* Fondo más claro para la sección */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item {
+    border-bottom: 1px solid #d4d4c4; /* Separador sutil */
+    margin-bottom: 0;
+}
+
+.faq-item:last-child {
+    border-bottom: none; /* Quita la línea del último elemento */
+}
+
+/* Oculta el checkbox nativo */
+.faq-toggle {
+    display: none;
+}
+
+.faq-question {
+    display: block;
+    cursor: pointer;
+    padding: 18px 25px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #4a3c2a;
+    transition: background-color 0.3s ease;
+    position: relative; /* Para posicionar el ícono */
+    font-family: 'Playfair Display', serif;
+}
+
+.faq-question:hover {
+    background-color: #f5f0e6;
+}
+
+/* El ícono de "más" o "menos" */
+.faq-question::after {
+    content: '+'; /* Ícono de "más" */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    font-weight: normal;
+    transition: transform 0.3s ease;
+    color: #82957b;
+}
+
+/* Muestra el ícono de "menos" cuando está activo (chequeado) */
+.faq-toggle:checked + .faq-question::after {
+    content: '–'; /* Ícono de "menos" */
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0; /* Inicialmente oculto */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out; /* Animación de despliegue */
+    padding: 0 25px;
+}
+
+.faq-answer p {
+    padding: 10px 0 20px 0;
+    margin: 0;
+    font-size: 1em;
+    color: #5b4a39;
+    line-height: 1.7;
+    font-family: sans-serif; /* Usamos el font-family base */
+}
+
+/* Cuando el checkbox está activo, despliega la respuesta */
+.faq-toggle:checked ~ .faq-answer {
+    max-height: 200px; /* Asegúrate de que este valor sea mayor que la altura real del contenido */
+    transition: max-height 0.4s ease-in;
+}
+
+
+/* Adaptación para celulares - Preguntas Frecuentes */
+@media (max-width: 768px) {
+    .faq-container {
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    .faq-question {
+        padding: 15px 20px;
+        font-size: 1.1em;
+    }
+
+    .faq-question::after {
+        right: 10px;
+        font-size: 1.3em;
+    }
 }
