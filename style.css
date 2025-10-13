@@ -25,16 +25,22 @@ header {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
+header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
 header .logo {
-  position: absolute;
-  left: 400px;          /* distancia desde el borde izquierdo */
-  top: 10%;            /* lo mueve al 50% de la altura del header */
-  transform: translateY(-50%); /* lo centra verticalmente */
-  width: 90px;         /* 🔹 más grande */
-  height: 90px;        /* igual al ancho para mantener el círculo */
+  width: 80px;
+  height: 80px;
   border-radius: 50%;  
   object-fit: cover;   
   overflow: hidden;
+  order: 1;
 }
 
 header h1 {
@@ -43,7 +49,7 @@ header h1 {
   color: #efeeee;
   margin: 0;
   text-align: center;
-  width: 100%; /* asegura que el texto se mantenga centrado */
+  order: 2;
 }
 
 /* Contenedor de íconos */
@@ -86,6 +92,32 @@ header h1 {
 }
 /* --- Página de productos --- */
 
+.descripcion a {
+  color: #82957b; /* tono tierra o verde */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.descripcion a:hover {
+  color: #4a3c2a; /* más oscuro al pasar el mouse */
+  text-decoration: underline;
+}
+
+.descripcion {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.descripcion p {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: #4a4a32;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
 .lista-productos {
   display: flex;
   flex-direction: column;
@@ -113,7 +145,7 @@ header h1 {
   width: 250px;
   height: 250px;
   object-fit: cover;
-  border-radius: 30px;
+  border-radius: 15px;
 }
 
 
@@ -167,73 +199,293 @@ header h1 {
 }
 
 .contacto {
-  text-align: left;
+  text-align: center;
   padding: 40px;
   background-color: #fffdf7;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .contacto h2 {
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8em;
+}
+
+.contacto p {
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  color: #4a3c2a;
+}
+
+.contacto a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #82957b;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+.contacto a:hover {
+  color: #4a3c2a;
 }
 
 .contacto img {
- 
-  margin-right: 10px;
-  width: 80px;         /* 🔹 más grande */
-  height: 80px;      /* debe ser igual al ancho para que el círculo quede perfecto */
-  border-radius: 50%; /* 🔹 esto lo hace circular */
-  object-fit: cover;  /* 🔹 recorta la imagen sin deformarla */
-  overflow: hidden;   /* asegura que no se vea fuera del círculo */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
 }
-/* --- Adaptación para celulares --- */
+/* --- Adaptación para tablets --- */
+@media (max-width: 1024px) {
+  .iconos-container {
+    gap: 30px;
+  }
+  
+  .icono img {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .producto {
+    width: 95%;
+    gap: 30px;
+  }
+}
+
+/* --- Adaptación para móviles --- */
 @media (max-width: 768px) {
   body {
     padding: 10px;
   }
 
   header {
-    padding: 15px;
-    font-size: 1.2em;
+    padding: 20px 15px;
+    gap: 10px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header .logo {
+    width: 60px;
+    height: 60px;
   }
 
   .iconos-container {
     flex-direction: column;
     gap: 25px;
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   .icono img {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
   }
 
   .icono h2 {
-    font-size: 1.1em;
+    font-size: 1em;
   }
 
   .producto {
-    flex-direction: column;
-    text-align: center;
-  }
-    .medidas {
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
     width: 100%;
-    text-align: center;
-    margin-top: 10px;
+    gap: 15px;
+    padding: 15px;
+    align-items: flex-start;
+  }
+
+  .medidas {
+    width: 100%;
+    text-align: left;
+    margin-top: 15px;
+    order: 3;
   }
 
   .producto img {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
   }
 
   .detalle {
-    text-align: center;
+    text-align: left;
+    flex: 1;
+    min-width: 0;
   }
 
-  footer {
+  .detalle h2 {
+    font-size: 1.2em;
+    text-align: left;
+    margin-bottom: 8px;
+  }
+
+  .detalle p {
     font-size: 0.9em;
+    text-align: left;
+    line-height: 1.4;
+  }
+
+  .descripcion {
+    margin: 15px auto;
+    padding: 0 15px;
+  }
+
+  .descripcion p {
+    font-size: 1em;
+  }
+}
+footer {
+  background-color: #82957b;
+  color: #fefae0;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 8px;
+  font-size: 0.9em;
+}
+
+/* --- Adaptación para móviles pequeños --- */
+@media (max-width: 480px) {
+  body {
+    padding: 5px;
+  }
+
+  header {
+    padding: 15px 10px;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  header .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .iconos-container {
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  .icono img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .icono h2 {
+    font-size: 0.9em;
+  }
+
+  .producto {
+    padding: 10px;
+    gap: 12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .producto img {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+  }
+
+  .detalle {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .detalle h2 {
+    font-size: 1.1em;
+    text-align: left;
+    margin-bottom: 6px;
+  }
+
+  .detalle p {
+    font-size: 0.8em;
+    text-align: left;
+    line-height: 1.3;
+  }
+
+  .medidas {
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    margin-top: 12px;
+    order: 3;
+  }
+
+  .medidas h3 {
+    font-size: 1em;
+  }
+
+  .medidas li {
+    font-size: 0.85em;
+  }
+
+  .descripcion {
+    margin: 10px auto;
+    padding: 0 10px;
+  }
+
+  .descripcion p {
+    font-size: 0.9em;
+  }
+
+  .contacto {
+    padding: 20px 15px;
+    margin: 15px auto;
+  }
+
+  .contacto h2 {
+    font-size: 1.5em;
+  }
+
+  .contacto p {
+    font-size: 1em;
+  }
+
+  .contacto a {
+    font-size: 1em;
+  }
+
+  .contacto img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Preguntas Frecuentes para móviles */
+  .faq-container {
+    margin: 20px auto;
     padding: 15px;
+  }
+
+  .faq-question {
+    padding: 15px 20px;
+    font-size: 1.1em;
+  }
+
+  .faq-question::after {
+    right: 15px;
+    font-size: 1.3em;
+  }
+
+  .faq-answer p {
+    font-size: 0.9em;
+    line-height: 1.6;
   }
 }
 
@@ -318,23 +570,4 @@ header h1 {
 .faq-toggle:checked ~ .faq-answer {
     max-height: 200px; /* Asegúrate de que este valor sea mayor que la altura real del contenido */
     transition: max-height 0.4s ease-in;
-}
-
-
-/* Adaptación para celulares - Preguntas Frecuentes */
-@media (max-width: 768px) {
-    .faq-container {
-        margin: 20px auto;
-        padding: 10px;
-    }
-
-    .faq-question {
-        padding: 15px 20px;
-        font-size: 1.1em;
-    }
-
-    .faq-question::after {
-        right: 10px;
-        font-size: 1.3em;
-    }
 }
