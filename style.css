@@ -571,3 +571,52 @@ footer {
     max-height: 200px; /* Asegúrate de que este valor sea mayor que la altura real del contenido */
     transition: max-height 0.4s ease-in;
 }
+
+
+/* --- Estilos para Títulos de Categoría --- */
+
+.categoria-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2em; /* Un poco más grande que el h2 del producto */
+  color: #4a3c2a; /* Color oscuro de tu paleta */
+  text-align: center;
+  width: 90%; /* Que coincida con el ancho del producto */
+  max-width: 1000px; /* Que coincida con el ancho del producto */
+  margin-top: 30px; /* Espacio antes de una nueva categoría */
+  margin-bottom: 10px; /* Espacio antes del primer producto de la categoría */
+  border-bottom: 2px solid #82957b; /* Línea sutil con tu color verde */
+  padding-bottom: 10px;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  .categoria-titulo {
+    font-size: 1.6em;
+    width: 100%;
+    margin-top: 25px;
+  }
+}
+
+/* --- Estilos para Contacto (WhatsApp) --- */
+
+.contacto-texto {
+  margin-top: 25px; /* Espacio después del link de Instagram */
+  margin-bottom: 10px; /* Espacio antes del número */
+  font-size: 1.1em;
+  color: #4a3c2a;
+}
+            
+.contacto-link-texto {
+  /* Anulamos el estilo flex de .contacto a */
+  display: inline; 
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #82957b; /* Color verde de tu tema */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contacto-link-texto:hover {
+  color: #4a3c2a; /* Color oscuro al pasar el mouse */
+  text-decoration: underline;
+}
