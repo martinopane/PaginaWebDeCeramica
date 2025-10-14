@@ -568,9 +568,11 @@ footer {
 
 /* Cuando el checkbox está activo, despliega la respuesta */
 .faq-toggle:checked ~ .faq-answer {
-    max-height: 200px; /* Asegúrate de que este valor sea mayor que la altura real del contenido */
+    /* Aumentamos el valor para que quepa todo el texto */
+    max-height: 1000px; 
     transition: max-height 0.4s ease-in;
 }
+
 
 
 /* --- Estilos para Títulos de Categoría --- */
